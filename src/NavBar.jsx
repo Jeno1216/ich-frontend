@@ -117,7 +117,7 @@ function NavBar() {
             <div className=' flex-column  mobile-nav w-100'>
 
             <div className=' m-3  text-center' style={{fontWeight: '900'}} >
-            <h1 className='logo p-1 m-0 text-black' style={{  fontWeight: '900'}}>ICH</h1>
+            <h1 className='logo p-1 m-0 text-light' style={{  fontWeight: '900'}}>ICH</h1>
         </div>
 
             <div className='p-1  text-center p-2 '>
