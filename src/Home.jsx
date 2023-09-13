@@ -242,7 +242,7 @@ function Home() {
     <div className='col-lg-3 col-md-4 col-sm-5 col-6 p-lg-2 p-md-2 p-2'>
       <div className='border shadow rounded-3 p-2' style={{backdropFilter:'blur(10px)'}}>
         <div className=''>
-          <img className='element-tilt' src={`https://drive.google.com/uc?id=${post.file}`} alt="placeholder" style={{width: '100%', height: '200px', objectFit: 'cover'}} />
+          <img className='element-tilt' src={`${post.file}`} alt="placeholder" style={{width: '100%', height: '200px', objectFit: 'cover'}} />
         </div>
         <div>
           <p className='m-0' style={{fontWeight: '900', color: 'white', fontSize: '20px', textAlign: 'start'}}>{post.title}</p>
