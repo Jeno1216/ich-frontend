@@ -191,44 +191,44 @@ return (
                             <h4 className='text-light m-0 pt-3 px-3'> Reviews and Ratings </h4>
                         </div>
 
-                        <div className=' w-100 p-3' style={{height: '90vh',  overflow: 'auto' }} >
+                        <div className=' w-100 ' style={{height: '90vh',  overflow: 'auto' }} >
                         {reviews.filter(rating => rating.product_id).length > 0 ? (
-  reviews
-    .filter(rating => rating.product_id)
-    .map(rating => (
-    <div className='w-100 mb-3 border rounded-3 shadow p-2' key={rating._id} style={{backdropFilter: 'blur(10px)'}}>
-      <div className='p-2 d-flex gap-2'>
-        <div className=' ' style={{ width: '50px', height: '50px' }}>
-          <img className='w-100 h-100' src={`${rating.product_id.file}`} alt="" style={{ objectFit: 'cover' }} />
-        </div>
-        <div className=' d-flex flex-column'>
-          <p className='text-light m-0'> {rating.product_id.title}</p>
-          <div className=' d-flex gap-2'>
-            <div className='d-flex gap-1'>
-            {Array.from({ length: 5 }, (_, i) => (
-              <i
-                style={{ color: i < rating.rating ? '#ffa500' : 'white' }}
-                className={`bi-star${i < rating.rating ? '-fill' : ''}`}
-              ></i>
-            ))}
-          </div>
-          <div>
-            <p className='text-light m-0'> ({rating.rating})</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className=' p-2 d-flex gap-2'>
-      <p className='text-light'>{rating.review}</p>
-    </div>
-    <div className='px-2 d-flex '>
-      <p className='text-light m-0' style={{fontSize: '12px'}}>{rating.createdAt}</p>
-    </div>
-  </div>
-    ))
-) : (
-  <p className='text-light'>No ratings yet.</p>
-)}
+                          reviews
+                            .filter(rating => rating.product_id)
+                            .map(rating => (
+                            <div className='w-100 mb-3 border rounded-3 shadow' key={rating._id} style={{backdropFilter: 'blur(10px)'}}>
+                              <div className='p-2 d-flex gap-2'>
+                                <div className=' ' style={{ width: '50px', height: '50px' }}>
+                                  <img className='w-100 h-100' src={`${rating.product_id.file}`} alt="" style={{ objectFit: 'cover' }} />
+                                </div>
+                                <div className=' d-flex flex-column'>
+                                  <p className='text-light m-0'> {rating.product_id.title}</p>
+                                  <div className=' d-flex gap-2'>
+                                    <div className='d-flex gap-1'>
+                                    {Array.from({ length: 5 }, (_, i) => (
+                                      <i
+                                        style={{ color: i < rating.rating ? '#ffa500' : 'white' }}
+                                        className={`bi-star${i < rating.rating ? '-fill' : ''}`}
+                                      ></i>
+                                    ))}
+                                  </div>
+                                  <div>
+                                    <p className='text-light m-0'> ({rating.rating})</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div className=' p-2 d-flex gap-2'>
+                              <p className='text-light'>{rating.review}</p>
+                            </div>
+                            <div className='px-2 d-flex '>
+                              <p className='text-light m-0' style={{fontSize: '12px'}}>{rating.createdAt}</p>
+                            </div>
+                          </div>
+                            ))
+                        ) : (
+                          <p className='text-light'>No ratings yet.</p>
+                        )}
 
 
                             </div>
