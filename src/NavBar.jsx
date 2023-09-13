@@ -144,7 +144,7 @@ function NavBar() {
               </div>
               :
               <div className='text-center p-2 d-flex justify-content-center gap-2'>
-                <Link to="/login" className='text-decoration-none px-3 rounded py-1 m-0 text-black border fw-bolder'>Sign in</Link>
+                <Link to="/login" className='text-decoration-none px-3 rounded py-1 m-0 text-light border fw-bolder'>Sign in</Link>
                 <Link to="/register" className='text-decoration-none px-3 rounded border py-1 m-0 text-light fw-bolder'>Sign up</Link>
               </div>
 
