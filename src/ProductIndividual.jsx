@@ -142,7 +142,7 @@ function ProductIndividual() {
     <div className='col-lg-6 col-md-6 col-sm-12 col-12 p-lg-3 p-md-3 p-2'  >
       <div className='element-tilt border rounded-3 p-3'  style={{backdropFilter:'blur(10px)', minHeight: '350px'}}>
         <div className='' data-aos="fade">
-          <img className='' src={`https://iloilo-coffee-house-api.onrender.com/Images/${product.file}`} alt="placeholder" style={{width: '150px'}} />
+          <img className='' src={`https://drive.google.com/uc?id=${product.file}`} alt="placeholder" style={{width: '150px'}} />
         </div>
         <div data-aos="fade">
           <p className='m-0'  style={{fontWeight: '900', color: 'white', fontSize: '20px', textAlign: 'start'}}>{product.title}</p>
@@ -212,8 +212,8 @@ function ProductIndividual() {
 
     
     {/** DISPLAYS ALL THE REVIEWS AND RATINGS */}
-    <div className='container  mt-3 d-flex justify-content-center'>
-  <div className='row col-12 p-3 rounded-3 d-flex' >
+    <div className='  mt-3 d-flex justify-content-center  p-0'>
+  <div className='row col-lg-10 col-md-10 col-12  rounded-3 d-flex ' >
     <div className='mb-4 mt-3 '>
       <p className='m-0' style={{ fontWeight: '900', color: 'white', fontSize: '30px', textAlign: 'start' }}>Ratings and Reviews</p>
     </div>
@@ -222,10 +222,10 @@ function ProductIndividual() {
 ) : (
   <div className='' style={{ height: '60vh', overflow: 'auto' }}>
     {reviews.map((rating) => (
-      <div className='mb-3 border rounded-3 shadow p-2' key={rating._id} style={{ backdropFilter: 'blur(10px)' }}>
+      <div className='mb-3 border rounded-3 shadow' key={rating._id} style={{ backdropFilter: 'blur(10px)' }}>
         <div className=' p-2 d-flex gap-2'>
           <div className='border rounded-5' style={{ width: '50px', height: '50px' }}>
-            <img className='w-100 h-100 rounded-5' src={`https://iloilo-coffee-house-api.onrender.com/Images/${rating.author_id?.file}`} alt="" style={{ objectFit: 'cover' }} 
+            <img className='w-100 h-100 rounded-5' src={`https://drive.google.com/uc?id=${rating.author_id?.file}`} alt="" style={{ objectFit: 'cover' }} 
             onError={(e) => {
               e.target.src = '/login-image.jpg';
             }}/>

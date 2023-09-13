@@ -10,16 +10,19 @@ function CreateProducts() {
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [image, setFile] = useState()
+    const [file, setFile] = useState()
   
     const handleSubmit = (e) => {
       e.preventDefault()
-      const formData = new FormData()
-      formData.append('author_id', user._id)
-      formData.append('title', title)
-      formData.append('description', description)
-      formData.append('file', file)
-      axios.post('https://iloilo-coffee-house-api.onrender.com/createproducts', formData)
+      
+      const product = {
+        author_id: user._id,
+        title: title,
+        description: description,
+        file: file // assuming imageUrl is the state variable for the image link
+      }
+    
+      axios.post('https://iloilo-coffee-house-api.onrender.com/createproducts', product)
       .then(res => {
           if (res.data === "Success") {
             toast.success('Product Added Successfully.', {
@@ -34,9 +37,9 @@ function CreateProducts() {
       }
       })
       .catch(err => console.log(err))
-  }  
+    }
 
-  return (
+    return (
     <>
     <div className='vh-100 d-flex align-items-center justify-content-center'>
       <div className='container d-flex justify-content-center align-items-center'>
@@ -55,9 +58,12 @@ function CreateProducts() {
             onChange={e => setDescription(e.target.value)}/>
         </div>
 
+        <p className='text-light'> Google Drive URL ID (e.g. in the link https://drive.google.com/uc?id=15i6GvbaxtjRDoluUa2bVDKz3NwtVNGeJ) <br />
+            just input 15i6GvbaxtjRDoluUa2bVDKz3NwtVNGeJ</p>
+
         <div className='px-4 py-2 border rounded d-flex gap-2' >
             <i className='bi-envelope text-light'> </i>
-            <textarea id="desc" rows="3" cols="100" style={{border: 'transparent', background: 'none', outline: 'none', color: 'white'}} placeholder='Image Link' 
+            <input type="text" style={{border: 'transparent', background: 'none', outline: 'none', color: 'white'}} placeholder='Image URl of the Product' 
             onChange={e => setFile(e.target.value)}/>
         </div>
 

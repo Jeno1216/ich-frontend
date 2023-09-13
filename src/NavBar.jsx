@@ -70,11 +70,11 @@ function NavBar() {
             </div>
 
             <div className=' p-1' data-aos="fade-down" data-aos-delay="200">
-              <Link to='/profile' className='m-0 nav-links text-light text-decoration-none'> Reviews </Link>
+              <Link to='/people' className='m-0 nav-links text-light text-decoration-none'> People </Link>
             </div>
 
             <div className=' p-1' data-aos="fade-down" data-aos-delay="200">
-              <Link to='/people' className='m-0 nav-links text-light text-decoration-none'> People </Link>
+              <Link to='/profile' className='m-0 nav-links text-light text-decoration-none'> Profile </Link>
             </div>
 
 
@@ -126,12 +126,13 @@ function NavBar() {
               <Link Link to='/products' className='m-0 text-decoration-none text-light'>Products</Link>
             </div>
 
-            <div className=' p-1  text-center p-2'>
-              <Link Link to='/profile' className='m-0 text-decoration-none text-light'>Reviews</Link>
-            </div>
 
             <div className=' p-1  text-center p-2'>
               <Link Link to='/people' className='m-0 text-decoration-none text-light'>People</Link>
+            </div>
+            
+            <div className=' p-1  text-center p-2'>
+              <Link Link to='/profile' className='m-0 text-decoration-none text-light'>Profile</Link>
             </div>
 
             { // if user is logged in, show logout instead of sign in and sign up

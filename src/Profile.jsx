@@ -63,17 +63,18 @@ function Profile() {
     const [file, setFile] = useState()
     const [facebook, setFacebook] = useState()
 
-
     const handleSubmit = (e) => {
       e.preventDefault();
     
-      const formData = new FormData();
-      formData.append('id', user_id);
-      if (user_name) formData.append('username', user_name); // if theres a user_name then append
-      if (file) formData.append('file', file); // if theres a file then append 
-      if (facebook) formData.append('facebook', facebook); // if theres a file then append  
+      const data = {
+        id: user_id,
+        username: user_name,
+        file: file,  // This should be a string containing the URL of the photo
+        facebook: facebook
+      };
+    
       axios
-        .put('https://iloilo-coffee-house-api.onrender.com/editprofile', formData)
+        .put('https://iloilo-coffee-house-api.onrender.com/editprofile', data)
         .then((res) => {
           toast.success('Profile Edited Successfully.', {
             position: toast.POSITION.BOTTOM_CENTER // Change position here
@@ -89,15 +90,7 @@ function Profile() {
         })
         .catch((err) => console.log(err));
     };
-    
-    const [filenamebutton, setFileNameButton] = useState(null);
-    const [fileName, setFileName] = useState('Select Profile Picture');
-  
-    const handleFileChange = (e) => {
-      setFile(e.target.files[0]);
-      setFileNameButton(e.target.files[0]);
-      setFileName(e.target.files[0].name);
-    };
+        
   
 return (
     <>
@@ -118,7 +111,7 @@ return (
                             <div className='border rounded-circle mb-2' style={{ width: '150px', height: '150px' }}>
                             <img
                               className='element-tilt w-100 h-100 rounded-circle'
-                              src={`https://iloilo-coffee-house-api.onrender.com/Images/${post.file}`}
+                              src={`${post.file}`}
                               alt="placeholder"
                               style={{width: '100%', objectFit: 'cover'}}
                               onError={(e) => {
@@ -157,14 +150,12 @@ return (
                                     onChange={e => setFacebook(e.target.value)} />
                                 </div>
 
-                                <div className='px-4 py-2  w-100'>
-                                  <label htmlFor="file-input" className='d-flex gap-2'style={{width: '100%'}}>
-                                    <i className='bi-image text-light'> </i> 
-                                    <p className=' m-0' style={{fontSize: '14px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color:'#A5A5A5'}}>{fileName}</p> 
-                                  </label>
-                                  <input id="file-input" type="file" accept='.jpg, .png' style={{display: 'none'}} 
-                                  onChange={handleFileChange}  />
+                                <div className='px-4 py-2  rounded d-flex gap-2' >
+                                    <i className='bi-image text-light'> </i>
+                                    <input type="text" className='username-input' style={{border: 'transparent', background: 'none', outline: 'none', color: 'white', fontSize: '14px'}} placeholder='Image Link'
+                                    onChange={e => setFile(e.target.value)} />
                                 </div>
+
 
                                 <div className=' w-100  d-flex  rounded px-4 py-2' style={{ background: 'none', outline: 'none', color: 'white', width: '200px'}} > 
                                 <button onClick={handleSubmit} className='border shadow rounded p-2 text-light' style={{background: 'transparent', fontSize: '14px'}}>Save Changes</button> </div>
@@ -208,7 +199,7 @@ return (
     <div className='w-100 mb-3 border rounded-3 shadow p-2' key={rating._id} style={{backdropFilter: 'blur(10px)'}}>
       <div className='p-2 d-flex gap-2'>
         <div className=' ' style={{ width: '50px', height: '50px' }}>
-          <img className='w-100 h-100' src={`https://iloilo-coffee-house-api.onrender.com/Images/${rating.product_id.file}`} alt="" style={{ objectFit: 'cover' }} />
+          <img className='w-100 h-100' src={`https://drive.google.com/uc?id=${rating.product_id.file}`} alt="" style={{ objectFit: 'cover' }} />
         </div>
         <div className=' d-flex flex-column'>
           <p className='text-light m-0'> {rating.product_id.title}</p>
