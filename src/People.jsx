@@ -31,11 +31,11 @@ function People() {
         
             {users.map(user => (
                 <Link to={`/people/${user._id}`}  className='people border rounded mt-3 d-flex gap-2 p-2 align-items-center text-decoration-none' style={{backdropFilter: 'blur(10px)'}}>
-<div className='rounded-circle' style={{height: '40px', width: '40px'}}>
-    <img className='rounded-circle' src={`https://iloilo-coffee-house-api.onrender.com/Images/${user.file}`} alt="Image" 
-        style={{width: '100%', height: '100%', objectFit: 'cover'}}
-        onError={(e) => {
-            e.target.src = '/login-image.jpg';
+<div className='border rounded-circle' style={{height: '45px', width: '45px'}}>
+    <img className='element-tilt w-100 h-100 rounded-circle' src={`https://iloilo-coffee-house-api.onrender.com/Images/${user.file}`} alt="Image" 
+            style={{width: '100%', objectFit: 'cover'}}
+            onError={(e) => {
+                e.target.src = '/login-image.jpg';
         }} 
     />
 </div>
