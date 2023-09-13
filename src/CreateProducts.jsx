@@ -27,7 +27,7 @@ function CreateProducts() {
               });      
       }
       else{
-        console.log(err)
+        console.log(res.data)
         toast.error('Server Error.', {
             position: toast.POSITION.BOTTOM_CENTER // Change position here
           });      
