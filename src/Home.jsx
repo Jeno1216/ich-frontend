@@ -242,7 +242,7 @@ function Home() {
     <div className='col-lg-3 col-md-4 col-sm-6 col-6 p-lg-3 p-md-3 p-2'>
       <div className='border shadow rounded-3 p-2' style={{backdropFilter:'blur(10px)'}}>
         <div className=''>
-          <img className='element-tilt' src={`https://iloilo-coffee-house.onrender.com/Images/${post.file}`} alt="placeholder" style={{width: '100%'}} />
+          <img className='element-tilt' src={`https://iloilo-coffee-house-api.onrender.com/Images/${post.file}`} alt="placeholder" style={{width: '100%'}} />
         </div>
         <div>
           <p className='m-0' style={{fontWeight: '900', color: 'white', fontSize: '20px', textAlign: 'start'}}>{post.title}</p>
