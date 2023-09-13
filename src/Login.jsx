@@ -16,6 +16,24 @@ import 'react-toastify/dist/ReactToastify.css';
 function Login() {
 
   useEffect(() => {
+    // Try to use a cookie
+    document.cookie = 'cookietest=1';
+    var cookiesEnabled = document.cookie.indexOf('cookietest=') !== -1;
+    // Delete the test cookie
+    document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT';
+
+    if (!cookiesEnabled) {
+        // Display a message to the user
+        var message = 'Cookies are not enabled in your browser. Please enable cookies in your browser settings for the best experience on our site.';
+        alert(message);
+        toast.error('Cookies are not enabled in your browser. Please enable cookies in your browser settings for the best experience on our site.', {
+          position: toast.POSITION.BOTTOM_CENTER // Change position here
+        });
+    }
+}, []);
+
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
