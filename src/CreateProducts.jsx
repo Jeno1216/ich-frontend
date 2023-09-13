@@ -10,7 +10,7 @@ function CreateProducts() {
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
-    const [file, setFile] = useState()
+    const [image, setFile] = useState()
   
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -55,11 +55,12 @@ function CreateProducts() {
             onChange={e => setDescription(e.target.value)}/>
         </div>
 
-        <div className='px-4 py-2 border rounded  gap-2' >
-            <i className='bi-image text-light'> </i>
-            <input type="file" accept='.jpg, .png' style={{border: 'transparent', background: 'none', outline: 'none', color: 'white'}} 
-            onChange={e => setFile(e.target.files[0])} />
+        <div className='px-4 py-2 border rounded d-flex gap-2' >
+            <i className='bi-envelope text-light'> </i>
+            <textarea id="desc" rows="3" cols="100" style={{border: 'transparent', background: 'none', outline: 'none', color: 'white'}} placeholder='Image Link' 
+            onChange={e => setFile(e.target.value)}/>
         </div>
+
 
           <button className='border shadow rounded p-2' style={{ background: 'none', outline: 'none', color: 'white', width: '200px'}} > Add Product </button>
 
