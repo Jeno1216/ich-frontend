@@ -93,7 +93,7 @@ function Home() {
     <div className='col-12 row'>
       <div data-aos="fade-right" className='col-lg-6 col-md-6 col-12 order-lg-1 order-md-1 order-2  p-3 d-flex justify-content-center align-items-lg-center align-items-md-center align-items-start'  >
         <div className=' p-3 ' style={{height: '80%', width: '100%'}}>
-          <img className='element-tilt shadow' src="https://scontent.fceb2-1.fna.fbcdn.net/v/t39.30808-6/363851914_706875608119073_3137684126634953658_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=49d041&_nc_eui2=AeGYTa8p66mbjGZMMsdQl_8iYVxLxBfTzPVhXEvEF9PM9cBm0P_s2x9frL_zPWwp5SWmt5g9UIe86LAiTNuD8xcn&_nc_ohc=FdjbMHuD_7sAX-jrCmT&_nc_zt=23&_nc_ht=scontent.fceb2-1.fna&_nc_e2o=f&oh=00_AfDvIGFA3p12QZ67ePgJlULoydLkFZcclJaeaGI8Xc1SmA&oe=64F9E7A2" 
+          <img className='element-tilt shadow' src="/dog-image.jpg" 
           alt="dog-image" style={{width: '100%', height: '100%', borderRadius: '20px', objectFit: 'cover'}} />
           <p className='text-center mt-2 d-lg-none d-md-none d-sm-none d-block' style={{color: 'black', fontSize: '14px', opacity: '.7'}}>[tilt your phone]</p>
         </div>

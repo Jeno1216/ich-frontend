@@ -19,7 +19,7 @@ function CreateProducts() {
       formData.append('title', title)
       formData.append('description', description)
       formData.append('file', file)
-      axios.post('http://localhost:3001/createproducts', formData)
+      axios.post('https://iloilo-coffee-house-api.onrender.com/createproducts', formData)
       .then(res => {
           if (res.data === "Success") {
             toast.success('Product Added Successfully.', {
