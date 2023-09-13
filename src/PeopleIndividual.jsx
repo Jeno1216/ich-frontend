@@ -36,7 +36,7 @@ useEffect(() => {
             <div className='border rounded-circle mb-2' style={{ width: '150px', height: '150px' }}>
             <img
             className='element-tilt w-100 h-100 rounded-circle'
-            src={`https://drive.google.com/uc?id=${userData.file}`}
+            src={`${userData.file}`}
             alt="placeholder"
             style={{width: '100%', objectFit: 'cover'}}
             onError={(e) => {
@@ -93,7 +93,7 @@ useEffect(() => {
             <div className='w-100 mb-3 border  rounded-3 shadow p-2' key={rating._id} style={{backdropFilter: 'blur(10px)'}}>
             <div className='p-2 d-flex gap-2'>
                 <div className=' ' style={{ width: '50px', height: '50px' }}>
-                <img className='w-100 h-100' src={`https://drive.google.com/uc?id=${rating.product_id.file}`} alt="" style={{ objectFit: 'cover' }} />
+                <img className='w-100 h-100' src={`${rating.product_id.file}`} alt="" style={{ objectFit: 'cover' }} />
                 </div>
                 <div className=' d-flex flex-column'>
                 <p className='text-light m-0'> {rating.product_id.title}</p>
