@@ -27,11 +27,10 @@ function CreateProducts() {
               });      
       }
       else{
+        console.log(err)
         toast.error('Server Error.', {
             position: toast.POSITION.BOTTOM_CENTER // Change position here
           });      
-
-  
       }
       })
       .catch(err => console.log(err))
