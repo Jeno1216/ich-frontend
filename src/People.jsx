@@ -39,11 +39,12 @@ function People() {
         }} 
     />
 </div>
+
 <div className='d-flex justify-content-between w-100'>
     <p className='people-name m-0' style={{fontWeight: '600', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}} key={user._id}>{user.username}</p>
     <div className='d-flex gap-2'>
-        <p className='m-0 people-rating' style={{fontSize: '14px', fontWeight: '200'}} key={user._id}>{user.numRatings} <i style={{fontSize: '14px', fontWeight: '200'}} >ratings </i>  | </p>
-        <p className='m-0 people-review' style={{fontSize: '14px', fontWeight: '200'}} key={user._id}>{user.numReviews} <i style={{fontSize: '14px', fontWeight: '200'}} > reviews</i></p>
+    <p className=' m-0 people-rating d-none d-lg-block d-md-block d-sm-none' style={{fontSize: '14px', fontWeight: '200'}} key={user._id}>{user.numRatings} <i style={{fontSize: '14px', fontWeight: '200'}} >ratings </i>  | </p>
+    <p className=' m-0 people-review d-none d-lg-block d-md-block d-sm-none' style={{fontSize: '14px', fontWeight: '200'}} key={user._id}>{user.numReviews} <i style={{fontSize: '14px', fontWeight: '200'}} > reviews</i></p>
     </div>
 </div>
 
