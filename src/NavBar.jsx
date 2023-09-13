@@ -79,9 +79,11 @@ function NavBar() {
 
 
 
-            <div className=' p-1  text-center p-2'>
+          {/**
+           * <div className=' p-1  text-center p-2'>
               <Link to='/createproducts' className='m-0 nav-links text-light text-decoration-none'>Add Products </Link>
             </div>
+          */}
 
         </div>
 
@@ -130,7 +132,7 @@ function NavBar() {
             <div className=' p-1  text-center p-2'>
               <Link Link to='/people' className='m-0 text-decoration-none text-light'>People</Link>
             </div>
-            
+
             <div className=' p-1  text-center p-2'>
               <Link Link to='/profile' className='m-0 text-decoration-none text-light'>Profile</Link>
             </div>
