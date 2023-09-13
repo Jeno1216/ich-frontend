@@ -249,11 +249,13 @@ function Home() {
         </div>
                 {/** stars will depict based on the average rating */}
                 <div className='gap-1 d-flex flex-lg-row flex-md-row flex-column'>
-                <i className={`bi ${post.averageRating >= 1 ? 'bi-star-fill' : post.averageRating >= 0.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
-                <i className={`bi ${post.averageRating >= 2 ? 'bi-star-fill' : post.averageRating >= 1.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
-                <i className={`bi ${post.averageRating >= 3 ? 'bi-star-fill' : post.averageRating >= 2.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
-                <i className={`bi ${post.averageRating >= 4 ? 'bi-star-fill' : post.averageRating >= 3.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
-                <i className={`bi ${post.averageRating >= 5 ? 'bi-star-fill' : post.averageRating >= 4.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
+                <div className='d-flex gap-1'>
+                    <i className={`bi ${post.averageRating >= 1 ? 'bi-star-fill' : post.averageRating >= 0.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
+                    <i className={`bi ${post.averageRating >= 2 ? 'bi-star-fill' : post.averageRating >= 1.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
+                    <i className={`bi ${post.averageRating >= 3 ? 'bi-star-fill' : post.averageRating >= 2.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
+                    <i className={`bi ${post.averageRating >= 4 ? 'bi-star-fill' : post.averageRating >= 3.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
+                    <i className={`bi ${post.averageRating >= 5 ? 'bi-star-fill' : post.averageRating >= 4.5 ? 'bi-star-half' : 'bi-star'}`} style={{ color: '#ffa500', fontSize: '15px', textAlign: 'start'}}></i>
+                  </div>
                 <p className='m-0' style={{fontWeight: '500', color: 'white', fontSize: '14px', textAlign: 'start'}}> {post.averageRating ? post.averageRating.toFixed(1) : "0"} ({post.numberOfRatings}). </p>
             </div>
         <div className=''>
