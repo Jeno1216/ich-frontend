@@ -1,11 +1,12 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import "./style.css"
 
 // npm install aos [animate onscroll]
 import AOS from 'aos' 
 import 'aos/dist/aos.css'
+
 
 
 function People() {
