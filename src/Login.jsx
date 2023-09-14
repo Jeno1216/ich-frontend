@@ -131,7 +131,7 @@ function Login() {
 
     <CookieConsent
   debug={true}
-  style={{ background: "rgba(0, 0, 0, 0.5)", backdropFilter: "blur(10px)", color: "lightgray" , border: '1px solid white', margin: '10px'}}
+  style={{ background: "rgba(0, 0, 0, 0.5)", backdropFilter: "blur(10px)", color: "lightgray" , border: '1px solid white', marginRight: '10px'}}
   buttonText="I understand"
   buttonStyle={{ color: "white", fontSize: "12px", background: 'transparent', border: '1px solid white', borderRadius: '10px'}}
 
