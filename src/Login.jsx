@@ -129,7 +129,7 @@ function Login() {
 
     </div>
 
-    <CookieConsent debug={true}>
+    <CookieConsent >
       This site uses cookies. Please unblock cookies if login failed.
     </CookieConsent>
     </>
