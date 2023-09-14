@@ -8,14 +8,6 @@ import 'aos/dist/aos.css'
 
 function PeopleIndividual() {
 
-const {id} = useParams() // the id in the link above the browser
-const [userData, setUserData] = useState({})
-const [ratings, setRatings] = useState([])
-const [numberOfReviews, setNumberOfReviews] = useState()
-const [numberOfRatings, setNumberOfRatings] = useState()
-
-useEffect(() => {
-
     useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
@@ -24,6 +16,15 @@ useEffect(() => {
         AOS.init({ duration: 2000 });
       }, []);
     
+
+const {id} = useParams() // the id in the link above the browser
+const [userData, setUserData] = useState({})
+const [ratings, setRatings] = useState([])
+const [numberOfReviews, setNumberOfReviews] = useState()
+const [numberOfRatings, setNumberOfRatings] = useState()
+
+useEffect(() => {
+
     axios.get('https://iloilo-coffee-house-api.onrender.com/fetchuserbyid/' + id)
     .then(response => {
         setUserData(response.data.user)
