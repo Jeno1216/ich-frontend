@@ -131,7 +131,7 @@ function Login() {
 
     <CookieConsent
   debug={true}
-  style={{ background: "rgba(0, 0, 0, 0.5)", backdropFilter: "blur(10px)", color: "lightgray" }}
+  style={{ background: "rgba(0, 0, 0, 0.5)", backdropFilter: "blur(10px)", color: "lightgray" , border: '1px solid white'}}
 >
   This site uses cookies. Please unblock cookies if login failed.
 </CookieConsent>
