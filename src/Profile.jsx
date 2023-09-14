@@ -108,13 +108,13 @@ return (
     <>
         <div className=' pt-5'>
             
-            <div className='mt-5 container d-flex justify-content-center align-items-center'>
+            <div className='mt-5 container d-flex justify-content-center align-items-center'  data-aos="fade-right">
 
                 <div className='row col-12'>
 
                     <div className='col-lg-4 p-3 d-flex flex-column align-items-center'>
 
-                        <div  className='border d-flex justify-content-center flex-column align-items-center p-3 rounded-3' style={{width: '300px', backdropFilter: 'blur(10px)'}} data-aos="fade-right">
+                        <div  className='border d-flex justify-content-center flex-column align-items-center p-3 rounded-3' style={{width: '300px', backdropFilter: 'blur(10px)'}} >
                             <div className='edit-button position-absolute m-0 border rounded-circle d-flex justify-content-center align-items-center bg-light shadow' style={{top: '10px', right: '10px', width: '40px', height: '40px'}}
                             onClick={toggleFormVisibility}>
                                 <i className='text-black bi-pencil '></i>
@@ -196,14 +196,14 @@ return (
 
                     </div>
 
-                     <div className='col-lg-8 p-3 ' data-aos="fade-right" > 
+                     <div className='col-lg-8 p-3 ' > 
                         <div className=' w-100 gap-3 d-flex flex-column align-items-center rounded' >
 
                         <div className='w-100 m-0' >
                             <h4 className='text-light m-0 pt-3 px-1'> Reviews and Ratings </h4>
                         </div>
 
-                        <div className=' w-100 '  style={{height: '90vh',  overflow: 'auto' }} >
+                        <div className=' w-100 ' style={{height: '90vh',  overflow: 'auto' }} >
                         {reviews.filter(rating => rating.product_id).length > 0 ? (
                           reviews
                             .filter(rating => rating.product_id)
