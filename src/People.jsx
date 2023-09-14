@@ -2,8 +2,22 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import "./style.css"
+
+// npm install aos [animate onscroll]
+import AOS from 'aos' 
+import 'aos/dist/aos.css'
+
+
 function People() {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+    
+      useEffect(() => {
+        AOS.init({ duration: 2000 });
+      }, []);
+    
     const [name, setName] = useState('');
     const [users, setUsers] = useState([]);
 
@@ -21,7 +35,7 @@ function People() {
     <>
         <div className=" d-flex flex-column vh-100  align-items-center" >
 
-        <div className=' container p-3 d-flex flex-column align-items-center' style={{marginTop: '100px'}}>
+        <div className='container p-3 d-flex flex-column align-items-center' style={{marginTop: '100px'}} data-aos="fade-right">
         <div className='row col-12 d-flex justify-content-center'>
         <div className='col-lg-6 col-12 order-lg-1 order-md-1 order-2  p-3'>
         <div className='px-4 py-2 border rounded d-flex gap-2' style={{backdropFilter: 'blur(10px)'}}>

@@ -196,14 +196,14 @@ return (
 
                     </div>
 
-                     <div className='col-lg-8 p-3 ' > 
+                     <div className='col-lg-8 p-3 ' data-aos="fade-right" > 
                         <div className=' w-100 gap-3 d-flex flex-column align-items-center rounded' >
 
                         <div className='w-100 m-0' >
                             <h4 className='text-light m-0 pt-3 px-1'> Reviews and Ratings </h4>
                         </div>
 
-                        <div className=' w-100 ' data-aos="fade-right" style={{height: '90vh',  overflow: 'auto' }} >
+                        <div className=' w-100 '  style={{height: '90vh',  overflow: 'auto' }} >
                         {reviews.filter(rating => rating.product_id).length > 0 ? (
                           reviews
                             .filter(rating => rating.product_id)
