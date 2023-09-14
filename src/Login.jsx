@@ -129,9 +129,12 @@ function Login() {
 
     </div>
 
-    <CookieConsent >
-      This site uses cookies. Please unblock cookies if login failed.
-    </CookieConsent>
+    <CookieConsent
+  debug={true}
+  style={{ background: "rgba(0, 0, 0, 0.5)", backdropFilter: "blur(10px)", color: "lightgray" }}
+>
+  This site uses cookies. Please unblock cookies if login failed.
+</CookieConsent>
     </>
 
     )
