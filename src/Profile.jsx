@@ -6,7 +6,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./style.css"
 import { useNavigate } from 'react-router-dom';
 
+// npm install aos [animate onscroll]
+import AOS from 'aos' 
+import 'aos/dist/aos.css'
+
 function Profile() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
 
   const userloggedin = useContext(userContext)
   const user_id = userloggedin._id
@@ -102,7 +114,7 @@ return (
 
                     <div className='col-lg-4 p-3 d-flex flex-column align-items-center'>
 
-                        <div  className='border d-flex justify-content-center flex-column align-items-center p-3 rounded-3' style={{width: '300px', backdropFilter: 'blur(10px)'}}>
+                        <div  className='border d-flex justify-content-center flex-column align-items-center p-3 rounded-3' style={{width: '300px', backdropFilter: 'blur(10px)'}} data-aos="fade-right">
                             <div className='edit-button position-absolute m-0 border rounded-circle d-flex justify-content-center align-items-center bg-light shadow' style={{top: '10px', right: '10px', width: '40px', height: '40px'}}
                             onClick={toggleFormVisibility}>
                                 <i className='text-black bi-pencil '></i>
@@ -191,7 +203,7 @@ return (
                             <h4 className='text-light m-0 pt-3 px-1'> Reviews and Ratings </h4>
                         </div>
 
-                        <div className=' w-100 ' style={{height: '90vh',  overflow: 'auto' }} >
+                        <div className=' w-100 ' data-aos="fade-right" style={{height: '90vh',  overflow: 'auto' }} >
                         {reviews.filter(rating => rating.product_id).length > 0 ? (
                           reviews
                             .filter(rating => rating.product_id)
