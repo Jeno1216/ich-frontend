@@ -30,7 +30,7 @@
 
 /* fixed background image */
 body{
-  background-image: url('/bg.jpg');
+  background-image: url('/home-background.png');
   background-attachment: fixed;
   background-size: cover;
 
