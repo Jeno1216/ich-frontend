@@ -16,7 +16,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Home() {
+function Home2() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,7 +32,7 @@ function Home() {
     useEffect(() =>{
       console.log('Home useEffect is being triggered'); // Add this line
   
-      axios.get('https://iloilo-coffee-house-api.onrender.com/fetchproducts')
+      axios.get('http://localhost:3001/fetchproducts')
       .then(posts => {
           setPosts(posts.data)
         })
@@ -62,52 +62,6 @@ function Home() {
     }, [posts]); // Add data as a dependency to ensure that useEffect re-runs whenever data changes
   
 
-    const [user, setUser] = useState(null);
-    const navigate = useNavigate()
-
-    useEffect(() => {
-      const getUser = () => {
-        fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": true,
-          },
-        })
-          .then((response) => {
-            if (response.status === 200) return response.json();
-            throw new Error("authentication has been failed!");
-          })
-          .then((resObject) => {
-            console.log(resObject.user);
-
-            const googleId = resObject.user.googleId;
-
-            axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId})
-            .then(res => {
-              if (res.data === 'Success') { // 'Success' is from the server code
-                // ensures it loads only once
-                  window.location.href = '/home'; // home is just a copy of '/' because if we
-                  // navigate to this page after choosing google account. we would have infinite refreshes
-              }
-            else{
-              toast.error('User not found.', {
-                position: toast.POSITION.BOTTOM_CENTER // Change position here
-              });
-            }
-            })
-
-
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
-      getUser();
-    }, []);
-  
   
   return (
   <>
@@ -280,7 +234,7 @@ function Home() {
 
 {/** TOP RATE PRODUCTS */}
 <div className='d-flex justify-content-center align-items-center p-3'>
-<div className='px-4 py-2 border rounded' style={{backdropFilter: 'blur(15px)'}}>
+<div className='px-4 py-2 border rounded' style={{backdropFilter: 'blur(15px)'}} data-aos="fade-right">
   <p style={{fontWeight: '700', color: 'white', fontSize: '40px', textAlign: 'center', margin: '0'}}> Top Rated Products</p>
   <p style={{fontWeight: '300', color: 'white', fontSize: '14px', textAlign: 'center'}}> Explore our top-rated products, the cream of the crop that customers love. These exceptional items deliver unmatched quality and satisfaction. </p>
 </div>
@@ -294,7 +248,7 @@ function Home() {
     .slice(0, 4) // get the top 4 posts
     .map(post => ( // loops all instances
     <div className='col-lg-3 col-md-4 col-sm-5 col-6 p-lg-2 p-md-2 p-2'>
-      <div className='border shadow rounded-3 p-2' style={{backdropFilter:'blur(15px)'}}>
+      <div className='border shadow rounded-3 p-2' style={{backdropFilter:'blur(15px)'}} data-aos="fade-right">
         <div className=''>
           <img className='element-tilt' src={`${post.file}`} alt="placeholder" style={{width: '100%', height: '200px', objectFit: 'cover'}} />
         </div>
@@ -329,7 +283,7 @@ function Home() {
 
 {/** MOST REVIEWED PRODUCTS */}
 <div className='d-flex justify-content-center align-items-center p-3'>
-<div className='px-4 py-2 border rounded' style={{backdropFilter: 'blur(15px)'}}>
+<div className='px-4 py-2 border rounded' style={{backdropFilter: 'blur(15px)'}}data-aos="fade-right">
   <p style={{fontWeight: '700', color: 'white', fontSize: '40px', textAlign: 'center', margin: '0'}}> Most Reviewed Products</p>
   <p style={{fontWeight: '300', color: 'white', fontSize: '14px', textAlign: 'center'}}> Discover our most reviewed products, highly-rated and well-loved by customers. Explore these popular items for a satisfying experience.</p>
 </div>
@@ -343,7 +297,7 @@ function Home() {
     .slice(0, 4) // get the top 4 posts
     .map(post => ( // loops all instances
     <div className='col-lg-3 col-md-4 col-sm-5 col-6 p-lg-2 p-md-2 p-2'>
-      <div className='border shadow rounded-3 p-2' style={{backdropFilter:'blur(15px)'}}>
+      <div className='border shadow rounded-3 p-2' style={{backdropFilter:'blur(15px)'}}data-aos="fade-right">
         <div className=''>
           <img className='element-tilt' src={`${post.file}`} alt="placeholder" style={{width: '100%', height: '200px', objectFit: 'cover'}} />
         </div>
@@ -384,4 +338,4 @@ function Home() {
 
 
 
-export default Home;
+export default Home2;

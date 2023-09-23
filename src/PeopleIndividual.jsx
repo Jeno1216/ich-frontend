@@ -25,7 +25,7 @@ const [numberOfRatings, setNumberOfRatings] = useState()
 
 useEffect(() => {
 
-    axios.get('https://iloilo-coffee-house-api.onrender.com/fetchuserbyid/' + id)
+    axios.get('http://localhost:3001/fetchuserbyid/' + id)
     .then(response => {
         setUserData(response.data.user)
         setRatings(response.data.ratings)
@@ -45,12 +45,12 @@ useEffect(() => {
         <div className='row col-12'>
         <div className='col-lg-4 p-3 d-flex flex-column align-items-center'>
 
-        <div  className='border d-flex justify-content-center flex-column align-items-center p-3 rounded-3' style={{width: '300px', backdropFilter: 'blur(10px)'}}  data-aos="fade-right">
+        <div  className='border d-flex justify-content-center flex-column align-items-center p-3 rounded-3' style={{width: '300px', backdropFilter: 'blur(15px)'}}  data-aos="fade-right">
 
             <div className='border rounded-circle mb-2' style={{ width: '150px', height: '150px' }}>
             <img
             className='element-tilt w-100 h-100 rounded-circle'
-            src={`${userData.file}`}
+            src={`${userData.picture ? userData.picture : userData.file}`}
             alt="placeholder"
             style={{width: '100%', objectFit: 'cover'}}
             onError={(e) => {
@@ -74,14 +74,14 @@ useEffect(() => {
         <br />
         <div className='d-flex justify-content-betweenborder col-12 align-items-center rounded-3' style={{width: '300px'}}>
         <div className='col-6 p-2'>
-            <div className='border text-center rounded p-2' style={{backdropFilter: "blur(10px)"}}  data-aos="fade-right">
+            <div className='border text-center rounded p-2' style={{backdropFilter: "blur(15px)"}}  data-aos="fade-right">
             <h1 className='text-light m-0'>{numberOfRatings}</h1>
             <p className='text-light m-0'>Ratings</p>
             </div>
         </div>
 
         <div className='col-6  p-2'>
-            <div className='border text-center rounded p-2' style={{backdropFilter: "blur(10px)"}}  data-aos="fade-right">
+            <div className='border text-center rounded p-2' style={{backdropFilter: "blur(15px)"}}  data-aos="fade-right">
             <h1 className='text-light m-0'>{numberOfReviews}</h1>
             <p className='text-light m-0'>Reviews</p>
             </div>
@@ -104,7 +104,7 @@ useEffect(() => {
             .filter(rating => rating.product_id)
             .map(rating => (
             <Link to={`/products/${rating.product_id._id}`} className='text-decoration-none'>
-            <div className='w-100 mb-3 border  rounded-3 shadow p-2' key={rating._id} style={{backdropFilter: 'blur(10px)'}}  data-aos="fade-right">
+            <div className='w-100 mb-3 border  rounded-3 shadow p-2' key={rating._id} style={{backdropFilter: 'blur(15px)'}}  >
             <div className='p-2 d-flex gap-2'>
                 <div className=' ' style={{ width: '50px', height: '50px' }}>
                 <img className='w-100 h-100' src={`${rating.product_id.file}`} alt="" style={{ objectFit: 'cover' }} />

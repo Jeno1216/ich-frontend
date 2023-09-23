@@ -58,7 +58,7 @@ function Register() {
       e.preventDefault();
   
       // First, check if the email already exists in the database
-      axios.get(`https://iloilo-coffee-house-api.onrender.com/check-email/${email}`) // ${email} is a placeholder that will be replaced with the actual value of the email variable
+      axios.get(`http://localhost:3001/check-email/${email}`) // ${email} is a placeholder that will be replaced with the actual value of the email variable
           .then(response => {
               if (response.data.exists) {
                 toast.error('Email already exist.', {
@@ -66,7 +66,7 @@ function Register() {
                 });
                       } else {
                   // If the email doesn't exist, proceed with registration
-                  axios.post('https://iloilo-coffee-house-api.onrender.com/register', { username, email, password })
+                  axios.post('http://localhost:3001/register', { username, email, password })
                       .then(res => {
                         toast.success('Successfully Registered.', {
                           position: toast.POSITION.BOTTOM_CENTER // Change position here
@@ -79,6 +79,12 @@ function Register() {
           .catch(err => console.log(err));
   };
 
+  const google = () => {
+    window.open("http://localhost:3001/auth/google", "_self");
+  };
+
+
+
   return (
     <>
     <div className='vh-100 d-flex justify-content-center align-items-center'>
@@ -86,7 +92,7 @@ function Register() {
           <div className='row col-12'>
 
             <div className='col-lg-6 col-12 p-2'>
-              <div className='border rounded p-3' style={{backdropFilter: 'blur(10px)'}} data-aos="fade-right">
+              <div className='border rounded p-3' style={{backdropFilter: 'blur(15px)'}} data-aos="fade-right">
                 <div className='d-flex gap-2'>
                   <p className='text-light m-0' style={{fontWeight: '800', fontSize: '50px', lineHeight: '60px'}} > Sign up </p>
                   <img src="/paw-image.png" alt="paw-image" style={{width: '50px'}} />
@@ -126,6 +132,7 @@ function Register() {
                     <button className='sign-in px-3 rounded py-1 bg-transparent border m-0 nav-links  d-flex text-light text-decoration-none' >Sign up</button>
                 </div>
 
+
                 
                 <div className='d-flex' >
                   <p className='' style={{fontWeight: '500', color: 'white', fontSize: '14px', textAlign: 'start'}}> Already have an account?&nbsp; </p>
@@ -134,6 +141,11 @@ function Register() {
                 </div>
 
               </form>
+
+              <div className=' d-flex' onClick={google}>
+                    <button className=' px-3 rounded py-1 bg-transparent border m-0 nav-links d-flex text-light text-decoration-none ' > <i className='bi-google'> </i> &nbsp; Sign up with Google</button>
+                </div>
+
 
               </div>
             </div>

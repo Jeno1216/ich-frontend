@@ -40,6 +40,9 @@ body{
   background-color: white;
 }
 
+.rate-review-button{
+  transition: .3s;
+}
 .rate-review-button:hover{
   background: transparent !important;
   color: white !important;

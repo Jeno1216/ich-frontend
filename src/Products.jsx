@@ -29,7 +29,7 @@ function Products() {
   const [posts, setPosts] = useState([])
 
   useEffect(() =>{
-    axios.get('https://iloilo-coffee-house-api.onrender.com/fetchproducts')
+    axios.get('http://localhost:3001/fetchproducts')
     .then(posts => {
         setPosts(posts.data)
       })
@@ -76,7 +76,7 @@ function Products() {
         <div className='container d-flex justify-content-center align-items-center'>
             <div className='row col-12  d-flex align-items-end'>
                 <div className='col-12 p-0'>
-                    <div className='border rounded p-3' style={{backdropFilter: 'blur(3px)'}} data-aos="fade-right">
+                    <div className='border rounded p-3' style={{backdropFilter: 'blur(15px)'}} data-aos="fade-right">
                         <div data-aos="fade-right"  className='d-flex gap-4 align-items-center mb-3'>
                             <p className='m-0 ' style={{fontWeight: '900', color: 'white', fontSize: '30px', textAlign: 'start'}}> Discover more about our products </p>
                         </div>
@@ -134,27 +134,27 @@ function Products() {
 
 
     {/** PRODUCTS */}
-    <div id='products' className='d-flex justify-content-center align-items-center p-3'>
-      <div className='px-4 py-2 ' >
-        <p style={{fontWeight: '700', color: 'white', fontSize: '40px', textAlign: 'center', margin: '0'}}>Products</p>
-        <p style={{fontWeight: '300', color: 'white', fontSize: '14px', textAlign: 'center'}}> Enjoy our products by visiting us on Villa.</p>
-      </div>
-    </div>
+    <div id='products' className='d-flex justify-content-center align-items-center p-3 '>
+    <div className='px-4 py-2 border rounded ' style={{backdropFilter: 'blur(15px)'}}>
+  <p style={{fontWeight: '700', color: 'white', fontSize: '40px', textAlign: 'center', margin: '0'}}> Products</p>
+  <p className='text-lg-center text-md-center text-start' style={{fontWeight: '300', color: 'white', fontSize: '14px'}}> Browse through entire product range. With a wide selection, you're sure to discover the perfect item for your needs.</p>
+</div>
+</div>
 
-    <div className='d-flex justify-content-center align-items-center p-3' style={{marginTop: '-40px'}}>
-      <div className='px-4 py-2 border rounded d-flex gap-2' style={{backdropFilter: 'blur(10px)'}}>
+    <div className='d-flex justify-content-center align-items-center p-3' >
+      <div className='px-4 py-2 border rounded d-flex gap-2' style={{backdropFilter: 'blur(15px)'}}>
           <i className='bi-search text-light'> </i>
           <input type="text" style={{border: 'transparent', background: 'none', outline: 'none', color: 'white'}} placeholder='Search a product' onChange={handleSearchInputChange} />
       </div>
     </div>
 
     <div className=' p-lg-4 p-md-4 p-2 d-flex justify-content-center align-items-center' style={{marginTop: '-20px'}}>
-      <div className=' row col-12  d-flex justify-content-start' style={{minHeight: '75vh'}}>
+      <div className=' row col-12  d-flex justify-content-lg-start justify-content-md-start justify-content-center' style={{minHeight: '75vh'}} >
 
         {
           posts.filter(post => post.title.toLowerCase().includes(searchInput.toLowerCase())).map(post => (
             <div className='col-lg-3 col-md-4 col-sm-5 col-6 p-lg-2 p-md-2 p-2'>
-              <div className='border shadow rounded-3 p-2' style={{backdropFilter:'blur(10px)'}}>
+              <div className='border shadow rounded-3 p-2' style={{backdropFilter:'blur(15px)'}} data-aos="fade-right">
                 <div className=''>
                 <img className='element-tilt' src={`${post.file}`} alt="placeholder" style={{width: '100%', height: '200px', objectFit: 'cover'}} />
                 </div>

@@ -40,7 +40,7 @@ function NavBar() {
   const navigate = useNavigate()
   
   const handleLogout = () => {
-    axios.get('https://iloilo-coffee-house-api.onrender.com/logout')
+    axios.get('http://localhost:3001/logout')
     .then(res => {
       if (res.data === 'Success'){
         toast.success('Logout Successfully.', {
@@ -93,15 +93,15 @@ function NavBar() {
           
         <div className=' d-flex gap-5 m-3 '>
         <div className=' d-flex gap-2' data-aos="fade-left" data-aos-delay="400" >
-          <input className='bg-transparent px-3 rounded py-1 border m-0 nav-links d-lg-flex d-md-flex d-none text-light text-decoration-none' style={{ backdropFilter: 'blur(10px)' }}  type="button" onClick={handleLogout} value='Logout' />
+          <input className='bg-transparent px-3 rounded py-1 border m-0 nav-links d-lg-flex d-md-flex d-none text-light text-decoration-none' style={{ backdropFilter: 'blur(15px)', background: "rgba(0, 0, 0, 0.5)"}}  type="button" onClick={handleLogout} value='Logout' />
           <p className='m-0 d-lg-none d-md-none d-flex  text-light' onClick={toggleMobileNav}> <span className='bi bi-list fs-2'></span>  </p>
         </div>
         </div>
           : // Else
         <div className=' d-flex gap-5 m-3 '>
         <div className=' d-flex gap-2' data-aos="fade-left" data-aos-delay="400" >
-          <Link to="/login" className='sign-in px-3 rounded py-1 border m-0 nav-links d-lg-flex d-md-flex d-none text-light text-decoration-none' style={{ backdropFilter: 'blur(10px)' }}>Sign in</Link>
-          <Link to="/register" className='sign-in px-3 rounded py-1 border m-0 nav-links d-lg-flex d-md-flex d-none text-light text-decoration-none' style={{ backdropFilter: 'blur(10px)' }}>Sign up</Link>
+          <Link to="/login" className='sign-in px-3 rounded py-1 border m-0 nav-links d-lg-flex d-md-flex d-none text-light text-decoration-none' style={{ backdropFilter: 'blur(15px)' }}>Sign in</Link>
+          <Link to="/register" className='sign-in px-3 rounded py-1 border m-0 nav-links d-lg-flex d-md-flex d-none text-light text-decoration-none' style={{ backdropFilter: 'blur(15px)' }}>Sign up</Link>
           <p className='m-0 d-lg-none d-md-none d-flex  text-light' onClick={toggleMobileNav}> <span className='bi bi-list fs-2'></span>  </p>
         </div>
         </div>
@@ -112,8 +112,8 @@ function NavBar() {
 
           {/* Render the mobile navigation container based on isMobileNavVisible */}
           {isMobileNavVisible && (
-            <div style={{zIndex: '999'}} className='d-flex position-fixed justify-content-center align-items-center w-100 p-3'>
-        <div className=' p-5 w-100 mobile-nav-container border shadow d-flex justify-content-center align-items-center rounded-3' style={{backdropFilter: 'blur(20px)'}} >
+            <div style={{zIndex: '999'}} className='d-flex position-fixed justify-content-center align-items-center w-100 p-2'>
+        <div className=' p-5 w-100 mobile-nav-container border shadow d-flex justify-content-center align-items-center rounded-3' style={{backdropFilter: 'blur(15px)', background: "rgba(0, 0, 0, 0.5)"}} >
             <div className=' flex-column  mobile-nav w-100'>
 
             <div className=' m-3  text-center' style={{fontWeight: '900'}} >

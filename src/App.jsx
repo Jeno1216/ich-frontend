@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Home from "./Home"
+import Home2 from "./Home2"
 import NavBar from "./NavBar"
 import Footer from "./Footer"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
@@ -25,7 +26,7 @@ function App() {
 
 axios.defaults.withCredentials = true;
 useEffect(() => {
-  axios.get('https://iloilo-coffee-house-api.onrender.com/')
+  axios.get('https://iloilo-coffee-house-api.onrender.com')
     .then(user => {
       setUser(user.data);
       console.log(user.data);
@@ -34,6 +35,8 @@ useEffect(() => {
       console.error('Error:', err);
     });
 }, []);
+
+  
 
   return (
     <>
@@ -49,6 +52,7 @@ useEffect(() => {
     <NavBar/>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/home" element={<Home2 />} />
         <Route path="/products" element={<Products/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />

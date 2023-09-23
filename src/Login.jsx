@@ -13,7 +13,6 @@ import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import CookieConsent from 'react-cookie-consent';
 
 function Login() {
 
@@ -54,7 +53,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('https://iloilo-coffee-house-api.onrender.com/login', {email, password})
+    axios.post('http://localhost:3001/login', {email, password})
     .then(res => {
       if (res.data === 'Success') { // 'Success' is from the server code
         toast.success('Login Successfully.', {
@@ -71,6 +70,10 @@ function Login() {
     .catch(err => console.log(err))
   }
 
+  const google = () => {
+    window.open("http://localhost:3001/auth/google", "_self");
+  };
+
   return (
     <>
     <div className='vh-100 d-flex justify-content-center align-items-center'>
@@ -78,7 +81,7 @@ function Login() {
           <div className='row col-12'>
 
             <div className='col-lg-6 col-12 p-2' >
-              <div className='border rounded p-3' style={{backdropFilter: 'blur(10px)'}} data-aos="fade-right">
+              <div className='border rounded p-3' style={{backdropFilter: 'blur(15px)'}} data-aos="fade-right">
                 <div className='d-flex gap-2'>
                   <p className='text-light m-0' style={{fontWeight: '800', fontSize: '50px', lineHeight: '60px'}} > Sign in </p>
                   <img src="/paw-image.png" alt="paw-image" style={{width: '50px'}} />
@@ -105,6 +108,7 @@ function Login() {
                     <button className='sign-in px-3 rounded py-1 bg-transparent border m-0 nav-links d-flex text-light text-decoration-none' >Sign in</button>
                 </div>
 
+
                 
                 <div className='d-flex'>
                   <p className='' style={{fontWeight: '500', color: 'white', fontSize: '14px', textAlign: 'start'}}> Don't have an account?&nbsp; </p>
@@ -113,6 +117,12 @@ function Login() {
                 </div>
 
               </form>
+
+              <div className=' d-flex' onClick={google}>
+                    <button className=' px-3 rounded py-1 bg-transparent border m-0 nav-links d-flex text-light text-decoration-none ' > <i className='bi-google'> </i> &nbsp; Sign in with Google</button>
+                </div>
+
+
               </div>
             </div>
             
@@ -129,7 +139,7 @@ function Login() {
 
     </div>
 
-    <CookieConsent
+  {/** <CookieConsent
   debug={true}
   style={{ background: "rgba(0, 0, 0, 0.5)", backdropFilter: "blur(10px)", color: "lightgray" , border: '1px solid white'}}
   buttonText="I understand"
@@ -137,7 +147,7 @@ function Login() {
 
 >
   This site uses cookies. Please unblock cookies if login failed.
-</CookieConsent>
+</CookieConsent>*/}  
     </>
 
     )

@@ -33,7 +33,7 @@ function ProductIndividual() {
   const [reviews, setReviews] = useState([])
   const navigate = useNavigate()
   useEffect(() => {
-      axios.get('https://iloilo-coffee-house-api.onrender.com/fetchproductbyid/' + id)
+      axios.get('http://localhost:3001/fetchproductbyid/' + id)
       .then(response => {
         if (response.data === 'The token is missing'){
           toast.error('Please Login First.', {
@@ -44,6 +44,8 @@ function ProductIndividual() {
         else{
           setProduct(response.data.product)
           setReviews(response.data.ratings)
+          console.log(response.data.ratings)
+
         }
       })
       .catch(err => {
@@ -81,6 +83,8 @@ function ProductIndividual() {
 
   const product_id = product._id
   const author_id = user._id
+
+  console.log("author", author_id)
   const [rating, setRating] = useState()
   const [review, setReview] = useState()
 
@@ -95,7 +99,7 @@ function ProductIndividual() {
       });
       return; 
     } else {
-    axios.post('https://iloilo-coffee-house-api.onrender.com/ratingreview', { product_id, author_id, rating, review })
+    axios.post('http://localhost:3001/ratingreview', { product_id, author_id, rating, review })
       .then(res => {
         toast.success('Review Passed.', {
           position: toast.POSITION.BOTTOM_CENTER // Change position here
@@ -124,7 +128,7 @@ function ProductIndividual() {
   const [averageRating, setAverageRating] = useState([])
 
   useEffect(() => {
-      axios.get('https://iloilo-coffee-house-api.onrender.com/fetchproductaverage/' + id)
+      axios.get('http://localhost:3001/fetchproductaverage/' + id)
       .then(result => {
         setAverageRating(result.data) // { average: avg, rating_length: ratings.length} here are the data passed from the server
       })
@@ -225,7 +229,7 @@ function ProductIndividual() {
       <div className='mb-3 border rounded-3 shadow' key={rating._id} style={{ backdropFilter: 'blur(10px)' }}>
         <div className=' p-2 d-flex gap-2'>
           <div className='border rounded-5' style={{ width: '50px', height: '50px' }}>
-            <img className='w-100 h-100 rounded-5' src={`${rating.author_id?.file}`} alt="" style={{ objectFit: 'cover' }} 
+            <img className='w-100 h-100 rounded-5' src={`${rating.author_id?.picture ? rating.author_id?.picture : rating.author_id?.file}`} alt="" style={{ objectFit: 'cover' }} 
             onError={(e) => {
               e.target.src = '/login-image.jpg';
             }}/>
