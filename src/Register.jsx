@@ -58,7 +58,7 @@ function Register() {
       e.preventDefault();
   
       // First, check if the email already exists in the database
-      axios.get(`http://localhost:3001/check-email/${email}`) // ${email} is a placeholder that will be replaced with the actual value of the email variable
+      axios.get(`https://iloilo-coffee-house-api.onrender.com/check-email/${email}`) // ${email} is a placeholder that will be replaced with the actual value of the email variable
           .then(response => {
               if (response.data.exists) {
                 toast.error('Email already exist.', {
@@ -66,7 +66,7 @@ function Register() {
                 });
                       } else {
                   // If the email doesn't exist, proceed with registration
-                  axios.post('http://localhost:3001/register', { username, email, password })
+                  axios.post('https://iloilo-coffee-house-api.onrender.com/register', { username, email, password })
                       .then(res => {
                         toast.success('Successfully Registered.', {
                           position: toast.POSITION.BOTTOM_CENTER // Change position here
@@ -80,7 +80,7 @@ function Register() {
   };
 
   const google = () => {
-    window.open("http://localhost:3001/auth/google", "_self");
+    window.open("https://iloilo-coffee-house-api.onrender.com/auth/google", "_self");
   };
 
 
