@@ -79,10 +79,13 @@ function Home() {
           },
         })
         .then((response) => {
-          console.log("Fetch response received"); // New log
+          console.log("Fetch response received"); // This should log if the fetch request is successful
     
           if (response.status === 200) return response.json();
           throw new Error("authentication has been failed!");
+        })
+        .catch((err) => {
+          console.log("Fetch error:", err); // This will log any network or fetch errors
         })
         .then((resObject) => {
           console.log("Response object received"); // New log
