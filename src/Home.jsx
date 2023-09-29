@@ -86,34 +86,11 @@ function Home() {
         })
         .catch((err) => {
           console.log("Fetch error:", err); // This will log any network or fetch errors
-        })
-        .then((resObject) => {
-          console.log("Response object received"); // New log
-          console.log(resObject.user);
-          
-          const googleId = resObject.user.googleId;
-          console.log("Google ID: ", googleId); // New log
-    
-          axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId})
-          .then(res => {
-            console.log("Axios response received"); // New log
-    
-            if (res.data === 'Success') {
-              console.log("res.data");
-            } else{
-              toast.error('User not found.', {
-                position: toast.POSITION.BOTTOM_CENTER
-              });
-            }
-          })
-        })
-        .catch((err) => {
-          console.log("An error occurred:", err); // Enhanced error log
         });
       };
       getUser();
     }, []);
-      
+          
   
   return (
   <>
