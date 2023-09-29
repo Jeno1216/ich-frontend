@@ -67,8 +67,8 @@ function Home() {
 
     useEffect(() => {
       const getUser = () => {
-        console.log("getUser function is called"); // Add this line
-
+        console.log("getUser function is called");
+    
         fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
           method: "GET",
           credentials: "include",
@@ -78,42 +78,34 @@ function Home() {
             "Access-Control-Allow-Credentials": true,
           },
         })
-          .then((response) => {
-            console.log("authentication has been failed!")
-
-            if (response.status === 200) return response.json();
-            throw new Error("authentication has been failed!");
-          })
-          .then((resObject) => {
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("Failed to authenticate user!");
+        })
+        .catch((err) => {
+          console.log("Fetch error:", err); // This will log any network or fetch errors
+        })
+        .then((resObject) => {
+          if(resObject){
             console.log(resObject.user);
-            console.log("gago")
             const googleId = resObject.user.googleId;
-
-            axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId})
+    
+            axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId}, {withCredentials: true})
             .then(res => {
-              if (res.data === 'Success') { // 'Success' is from the server code
-                // ensures it loads only once
-                  console.log("res.data") // home is just a copy of '/' because if we
-                  // navigate to this page after choosing google account. we would have infinite refreshes
+              if (res.data === 'Success') {
+                console.log("res.data");
+              } else{
+                toast.error('User not found.', {
+                  position: toast.POSITION.BOTTOM_CENTER
+                });
               }
-            else{
-              toast.error('User not found.', {
-                position: toast.POSITION.BOTTOM_CENTER // Change position here
-              });
-            }
             })
-
-
-          })
-          .catch((err) => {
-            console.log(err);
-            console.log("err");
-
-          });
+          }
+        });
       };
       getUser();
     }, []);
-  
+    
   
   return (
   <>
