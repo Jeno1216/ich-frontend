@@ -91,7 +91,7 @@ function Home() {
             .then(res => {
               if (res.data === 'Success') { // 'Success' is from the server code
                 // ensures it loads only once
-                  window.location.href = '/home'; // home is just a copy of '/' because if we
+                  console.log("res.data") // home is just a copy of '/' because if we
                   // navigate to this page after choosing google account. we would have infinite refreshes
               }
             else{
