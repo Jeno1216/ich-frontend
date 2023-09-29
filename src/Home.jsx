@@ -77,6 +77,8 @@ function Home() {
           },
         })
           .then((response) => {
+            console.log("authentication has been failed!")
+
             if (response.status === 200) return response.json();
             throw new Error("authentication has been failed!");
           })
