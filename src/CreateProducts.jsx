@@ -22,7 +22,7 @@ function CreateProducts() {
         file: file // assuming imageUrl is the state variable for the image link
       }
     
-      axios.post('http://localhost:3001/createproducts', product)
+      axios.post('https://iloilo-coffee-house-api.onrender.com/createproducts', product)
       .then(res => {
           if (res.data === "Success") {
             toast.success('Product Added Successfully.', {

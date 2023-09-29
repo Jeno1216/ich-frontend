@@ -26,7 +26,7 @@ function People() {
     const searchUser = async (e) => {
         setName(e.target.value);
         if (e.target.value !== '') {
-            const res = await axios.get(`http://localhost:3001/search?name=${e.target.value}`);
+            const res = await axios.get(`https://iloilo-coffee-house-api.onrender.com/search?name=${e.target.value}`);
             setUsers(res.data);
         } else {
             setUsers([]);
