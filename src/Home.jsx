@@ -77,12 +77,6 @@ function Home() {
             "Access-Control-Allow-Credentials": true,
           },
         })
-          .then((response) => {
-            console.log("authentication has been failed!")
-
-            if (response.status === 200) return response.json();
-            throw new Error("authentication has been failed!");
-          })
           .then((resObject) => {
             console.log(resObject.user);
 
