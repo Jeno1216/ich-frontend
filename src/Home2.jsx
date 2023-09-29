@@ -32,7 +32,7 @@ function Home2() {
     useEffect(() =>{
       console.log('Home useEffect is being triggered'); // Add this line
   
-      axios.get('http://localhost:3001/fetchproducts')
+      axios.get('https://iloilo-coffee-house-api.onrender.com/fetchproducts')
       .then(posts => {
           setPosts(posts.data)
         })
