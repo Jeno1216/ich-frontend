@@ -107,6 +107,8 @@ function Home() {
           })
           .catch((err) => {
             console.log(err);
+            console.log("sds");
+
           });
       };
       getUser();
