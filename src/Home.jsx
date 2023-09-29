@@ -67,6 +67,7 @@ function Home() {
 
     useEffect(() => {
       const getUser = () => {
+        console.log("getUser function is called"); // Add this line
         fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
           method: "GET",
           credentials: "include",
