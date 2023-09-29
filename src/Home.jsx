@@ -67,8 +67,8 @@ function Home() {
 
     useEffect(() => {
       const getUser = () => {
-        console.log("getUser function is called");
-      
+        console.log("getUser function is called"); // Add this line
+
         fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
           method: "GET",
           credentials: "include",
@@ -78,15 +78,39 @@ function Home() {
             "Access-Control-Allow-Credentials": true,
           },
         })
-        .then(response => response.json()) // This line converts the response to JSON
-        .then(data => {
-          console.log(data); // This line logs the data
-        })
-        .catch(err => {
-          console.log("Fetch error:", err); // This line logs any errors
-        });
+          .then((response) => {
+            console.log("authentication has been failed!")
+
+            if (response.status === 200) return response.json();
+            throw new Error("authentication has been failed!");
+          })
+          .then((resObject) => {
+            console.log(resObject.user);
+            console.log("gago")
+            const googleId = resObject.user.googleId;
+
+            axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId})
+            .then(res => {
+              if (res.data === 'Success') { // 'Success' is from the server code
+                // ensures it loads only once
+                  console.log("res.data") // home is just a copy of '/' because if we
+                  // navigate to this page after choosing google account. we would have infinite refreshes
+              }
+            else{
+              toast.error('User not found.', {
+                position: toast.POSITION.BOTTOM_CENTER // Change position here
+              });
+            }
+            })
+
+
+          })
+          .catch((err) => {
+            console.log(err);
+            console.log("err");
+
+          });
       };
-      
       getUser();
     }, []);
   
