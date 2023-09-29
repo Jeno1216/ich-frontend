@@ -66,50 +66,45 @@ function Home() {
     const navigate = useNavigate()
 
     useEffect(() => {
-      const getUser = () => {
+      const getUser = async () => {
         console.log("getUser function is called");
     
-        fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": true,
-          },
-        })
-        .then((response) => {
-          if (response.status === 200) return response.json();
-          throw new Error("Failed to authenticate user!");
-        })
-        .catch((err) => {
-          console.log("Fetch error:", err); // This will log any network or fetch errors
-        })
-        .then((resObject) => {
-          if(resObject){
-            console.log(resObject.user);
-            const googleId = resObject.user.googleId;
+        try {
+          const response = await fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
+            method: "GET",
+            credentials: "include",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Credentials": true,
+            },
+          });
     
-            axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId}, {withCredentials: true})
-            .then(res => {
-              if (res.data === 'Success') {
-                console.log("res.data");
-              } else{
-                toast.error('User not found.', {
-                  position: toast.POSITION.BOTTOM_CENTER
-                });
-              }
-            })
+          if (response.status !== 200) {
+            throw new Error("Failed to authenticate user!");
           }
-          else{
-            console.log("WOW ERROR")
+    
+          const resObject = await response.json();
+          console.log(resObject.user);
+          const googleId = resObject.user.googleId;
+    
+          const axiosResponse = await axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId}, {withCredentials: true});
+          
+          if (axiosResponse.data === 'Success') {
+            console.log("res.data");
+          } else{
+            toast.error('User not found.', {
+              position: toast.POSITION.BOTTOM_CENTER
+            });
           }
-        });
+        } catch (err) {
+          console.log(err);
+        }
       };
+      
       getUser();
     }, []);
-    
-  
+      
   return (
   <>
 
