@@ -72,7 +72,6 @@ function Home() {
         try {
           const response = await fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
             method: "GET",
-            credentials: "include",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
