@@ -101,6 +101,9 @@ function Home() {
               }
             })
           }
+          else{
+            console.log("WOW ERROR")
+          }
         });
       };
       getUser();
