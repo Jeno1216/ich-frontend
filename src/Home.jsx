@@ -68,7 +68,7 @@ function Home() {
     useEffect(() => {
       const getUser = () => {
         console.log("getUser function is called");
-    
+      
         fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
           method: "GET",
           credentials: "include",
@@ -78,19 +78,18 @@ function Home() {
             "Access-Control-Allow-Credentials": true,
           },
         })
-        .then((response) => {
-          console.log("Fetch response received"); // This should log if the fetch request is successful
-    
-          if (response.status === 200) return response.json();
-          throw new Error("authentication has been failed!");
+        .then(response => response.json()) // This line converts the response to JSON
+        .then(data => {
+          console.log(data); // This line logs the data
         })
-        .catch((err) => {
-          console.log("Fetch error:", err); // This will log any network or fetch errors
+        .catch(err => {
+          console.log("Fetch error:", err); // This line logs any errors
         });
       };
+      
       getUser();
     }, []);
-          
+  
   
   return (
   <>
