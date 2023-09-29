@@ -68,6 +68,7 @@ function Home() {
     useEffect(() => {
       const getUser = () => {
         console.log("getUser function is called"); // Add this line
+
         fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
           method: "GET",
           credentials: "include",
@@ -77,9 +78,15 @@ function Home() {
             "Access-Control-Allow-Credentials": true,
           },
         })
+          .then((response) => {
+            console.log("authentication has been failed!")
+
+            if (response.status === 200) return response.json();
+            throw new Error("authentication has been failed!");
+          })
           .then((resObject) => {
             console.log(resObject.user);
-
+            console.log("gago")
             const googleId = resObject.user.googleId;
 
             axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId})
