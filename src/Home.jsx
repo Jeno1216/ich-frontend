@@ -70,6 +70,7 @@ function Home() {
         console.log("getUser function is called");
     
         try {
+          console.log("About to fetch");
           const response = await fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
             method: "GET",
             credentials: "include",
@@ -79,6 +80,7 @@ function Home() {
               "Access-Control-Allow-Credentials": true,
             },
           });
+          console.log("Fetch completed");
     
           if (response.status === 200) {
             const resObject = await response.json();
@@ -105,12 +107,13 @@ function Home() {
             throw new Error(`Failed to authenticate user! Status code: ${response.status}`);
           }
         } catch (err) {
-          console.log("Fetch error:", err);
+          console.log("Error occurred:", err);
         }
       };
     
       getUser();
     }, []);
+    
           
   return (
   <>
