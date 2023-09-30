@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react';
 
 const Qwerty = () => {
   const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getUserData = async () => {
       try {
-        console.log("getUser function is called");
-
         const response = await fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
           method: "GET",
+          credentials: "include",
           headers: {
+            Accept: "application/json",
             "Content-Type": "application/json",
+            "Access-Control-Allow-Credentials": true,
           },
         });
-
-        console.log("Fetch completed");
-
 
         if (response.status === 200) {
           const data = await response.json();
@@ -26,6 +25,7 @@ const Qwerty = () => {
         }
       } catch (err) {
         console.error("An error occurred while fetching user data:", err);
+        setError(err.message);
       }
     };
 
@@ -34,7 +34,12 @@ const Qwerty = () => {
 
   return (
     <div>
-      {userData ? (
+      {error ? (
+        <div>
+          <h2>Error:</h2>
+          <p>{error}</p>
+        </div>
+      ) : userData ? (
         <div>
           <h2>User Data:</h2>
           <pre>{JSON.stringify(userData, null, 2)}</pre>
