@@ -6,15 +6,17 @@ const Qwerty = () => {
   useEffect(() => {
     const getUserData = async () => {
       try {
+        console.log("getUser function is called");
+
         const response = await fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
           method: "GET",
-          credentials: "include",
           headers: {
-            Accept: "application/json",
             "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": true,
           },
         });
+
+        console.log("Fetch completed");
+
 
         if (response.status === 200) {
           const data = await response.json();
