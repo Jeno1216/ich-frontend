@@ -20,6 +20,7 @@ const Qwerty = () => {
         if (response.status === 200) {
           const data = await response.json();
           setUserData(data);
+          console.log(data)
         } else {
           throw new Error(`Failed to fetch user data! Status code: ${response.status}`);
         }
