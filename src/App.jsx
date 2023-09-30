@@ -17,6 +17,7 @@ import Profile from "./Profile";
 import {Helmet} from "react-helmet";
 import People from "./People";
 import PeopleIndividual from "./PeopleIndividual";
+import Qwerty from "./Qwerty";
 
 export const userContext = createContext() 
 
