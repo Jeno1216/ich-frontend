@@ -63,8 +63,6 @@ useEffect(() => {
         <Route path="/people" element={<People/>} />
         <Route path="/people/:id" element={<PeopleIndividual/>} />
         <Route path="/qwerty" element={<Qwerty />} />
-
-
       </Routes>
       <Footer/>
     </BrowserRouter>
