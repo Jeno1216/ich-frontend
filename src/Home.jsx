@@ -66,25 +66,56 @@ function Home() {
     const navigate = useNavigate()
 
     useEffect(() => {
-      const fetchCookie = () => {
-          const cookies = document.cookie.split(';');
-          for (const cookie of cookies) {
-              const [name, value] = cookie.trim().split('=');
-              if (name === 'token') {
-                  // You've found the 'token' cookie, do something with it
-                  console.log('Token cookie value:', value);
-                  // You can use 'value' (the token) to make authenticated requests
+      const getUser = () => {
+        console.log("getUser function is called");
+    
+        fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Credentials": true,
+          },
+        })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("Failed to authenticate user!");
+        })
+        .catch((err) => {
+          console.log("Fetch error:", err); // This will log any network or fetch errors
+        })
+        .then((resObject) => {
+          console.log("Fetch result:", resObject)
+          if(resObject){
+            console.log(resObject.user);
+            const googleId = resObject.user.googleId;
+    
+            axios.post('https://iloilo-coffee-house-api.onrender.com/logingoogle', {googleId}, {withCredentials: true})
+            .then(res => {
+              if (res.data === 'Success') {
+                console.log("res.data");
+              } else{
+                toast.error('User not found.', {
+                  position: toast.POSITION.BOTTOM_CENTER
+                });
               }
+            })
           }
+          else{
+            console.log("WOW ERROR")
+          }
+        });
       };
-
-      fetchCookie();
-  }, []);
-
+      getUser();
+    }, []);
     
   
   return (
   <>
+
+
+
 {/** Landing Section */}
   <div className='w-100 vh-100 d-flex justify-content-center align-items-center'>
     <div className='container d-flex justify-content-center p-0'>
