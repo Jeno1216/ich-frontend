@@ -84,7 +84,7 @@ function Home() {
             const resObject = await response.json();
             console.log("Fetch result:", resObject);
     
-            if(resObject){
+            if(resObject && resObject.user){
               console.log(resObject.user);
               const googleId = resObject.user.googleId;
     
@@ -99,10 +99,10 @@ function Home() {
               }
             }
             else{
-              console.log("WOW ERROR")
+              console.log("No user data in response")
             }
           } else {
-            throw new Error("Failed to authenticate user!");
+            throw new Error(`Failed to authenticate user! Status code: ${response.status}`);
           }
         } catch (err) {
           console.log("Fetch error:", err);
@@ -111,7 +111,7 @@ function Home() {
     
       getUser();
     }, []);
-      
+          
   return (
   <>
 
