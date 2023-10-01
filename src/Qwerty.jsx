@@ -11,7 +11,7 @@ const Qwerty = () => {
     .then(posts => {
         setPosts(posts.data)
       })
-    .catch(err => console.error(err))
+    .catch(err => console.error(err.response.data))
   }, [])
 
 
