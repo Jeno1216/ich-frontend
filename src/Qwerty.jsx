@@ -1,55 +1,35 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const Qwerty = () => {
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
+const FetchData = () => {
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    const getUserData = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch("https://iloilo-coffee-house-api.onrender.com/auth/login/success", {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Credentials": true,
-          },
-        });
-
-        if (response.status === 200) {
-          const data = await response.json();
-          setUserData(data);
-          console.log(data)
-        } else {
-          throw new Error(`Failed to fetch user data! Status code: ${response.status}`);
-        }
-      } catch (err) {
-        console.error("An error occurred while fetching user data:", err);
-        setError(err.message);
+        const response = await axios.get('https://iloilo-coffee-house-api.onrender.com/auth/login/success');
+        setData(response.data);
+        console.log(response.data)
+      } catch (error) {
+        console.error('An error occurred while fetching the data:', error);
       }
     };
 
-    getUserData();
+    fetchData();
   }, []);
 
   return (
     <div>
-      {error ? (
+      {data ? (
         <div>
-          <h2>Error:</h2>
-          <p>{error}</p>
-        </div>
-      ) : userData ? (
-        <div>
-          <h2>User Data:</h2>
-          <pre>{JSON.stringify(userData, null, 2)}</pre>
+          <h2>Data:</h2>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
         </div>
       ) : (
-        <p>Loading user data...</p>
+        <p>Loading data...</p>
       )}
     </div>
   );
 };
 
-export default Qwerty;
+export default FetchData;
