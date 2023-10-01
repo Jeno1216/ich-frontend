@@ -7,7 +7,7 @@ const Qwerty = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://iloilo-coffee-house-api.onrender.com/auth/login/success');
+        const response = await axios.get('https://iloilo-coffee-house-api.onrender.com/fetchproducts');
         setData(response.data);
         console.log(response.data)
       } catch (error) {
