@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const FetchData = () => {
+const Qwerty = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ const FetchData = () => {
   );
 };
 
-export default FetchData;
+export default Qwerty;
