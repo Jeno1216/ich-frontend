@@ -9,7 +9,8 @@ const Qwerty = () => {
       try {
         const response = await axios.get('https://iloilo-coffee-house-api.onrender.com/some-route');
         setData(response.data);
-        console.log(response.data)
+        console.log("luh gago:", response.data)
+        
       } catch (error) {
         console.error('An error occurred while fetching the data:', error);
       }
