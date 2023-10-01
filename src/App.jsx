@@ -27,7 +27,7 @@ function App() {
 
 axios.defaults.withCredentials = true;
 useEffect(() => {
-  axios.get('https://iloilo-coffee-house-api.onrender.com/')
+  axios.get('https://iloilo-coffee-house-api.onrender.com')
     .then(user => {
       setUser(user.data);
       console.log(user.data);
