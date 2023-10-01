@@ -4,20 +4,17 @@ import axios from 'axios';
 const Qwerty = () => {
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://iloilo-coffee-house-api.onrender.com/some-route');
-        setData(response.data);
-        console.log("luh gago:", response.data)
-        
-      } catch (error) {
-        console.error('An error occurred while fetching the data:', error);
-      }
-    };
-  
-    fetchData();
-  });
+  useEffect(() =>{
+    console.log('Home useEffect is being triggered'); // Add this line
+
+    axios.get('https://iloilo-coffee-house-api.onrender.com/some-route')
+    .then(posts => {
+        setPosts(posts.data)
+      })
+    .catch(err => console.error(err))
+  }, [])
+
+
   
 
   return (
