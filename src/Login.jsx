@@ -53,7 +53,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('https://iloilo-coffee-house-api.onrender.com/login', {email, password})
+    axios.post('http://localhost:3001/login', {email, password})
     .then(res => {
       if (res.data === 'Success') { // 'Success' is from the server code
         toast.success('Login Successfully.', {

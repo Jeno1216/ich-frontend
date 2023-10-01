@@ -17,7 +17,7 @@ const Qwerty = () => {
     };
   
     fetchData();
-  });
+  }, []);
   
 
   return (
