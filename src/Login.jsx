@@ -113,15 +113,21 @@ function Login() {
                 <div className='d-flex'>
                   <p className='' style={{fontWeight: '500', color: 'white', fontSize: '14px', textAlign: 'start'}}> Don't have an account?&nbsp; </p>
                   <Link to="/register" style={{textDecoration: 'underline', fontWeight: '500', color: 'white', fontSize: '14px', textAlign: 'start'}}>  Sign up. </Link>
-
                 </div>
 
               </form>
 
-              <div className=' d-flex' onClick={google}>
+              {/** replace the div below with this if the google login method is now fixed 
+              <div className='d-flex' onClick={google}>
                     <button className=' px-3 rounded py-1 bg-transparent border m-0 nav-links d-flex text-light text-decoration-none ' > <i className='bi-google'> </i> &nbsp; Sign in with Google</button>
                 </div>
+                */ }
 
+                <div className='d-flex' onClick={() => alert("This login method is currently unavailable, please sign up using your email.")}>
+                    <button className=' px-3 rounded py-1 bg-transparent border m-0 nav-links d-flex text-light text-decoration-none ' > 
+                        <i className='bi-google'> </i>   Sign in with Google
+                    </button>
+                </div>
 
               </div>
             </div>

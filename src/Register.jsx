@@ -142,8 +142,16 @@ function Register() {
 
               </form>
 
-              <div className=' d-flex' onClick={google}>
-                    <button className=' px-3 rounded py-1 bg-transparent border m-0 nav-links d-flex text-light text-decoration-none ' > <i className='bi-google'> </i> &nbsp; Sign up with Google</button>
+              {/** replace the div below with this if the google login method is now fixed 
+              <div className='d-flex' onClick={google}>
+                    <button className=' px-3 rounded py-1 bg-transparent border m-0 nav-links d-flex text-light text-decoration-none ' > <i className='bi-google'> </i> &nbsp; Sign in with Google</button>
+                </div>
+                */ }
+
+<div className='d-flex' onClick={() => alert("This login method is currently unavailable, please sign up using your email.")}>
+                    <button className=' px-3 rounded py-1 bg-transparent border m-0 nav-links d-flex text-light text-decoration-none ' > 
+                        <i className='bi-google'> </i>   Sign up with Google
+                    </button>
                 </div>
 
 
